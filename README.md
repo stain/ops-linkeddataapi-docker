@@ -7,8 +7,9 @@ Exposes [OPS\_LinkedDataAPI](https://github.com/openphacts/OPS_LinkedDataApi) th
 ## Dependencies
 
 (TODO - [link these docker](http://docs.docker.com/userguide/dockerlinks/) images together):
- * [virtuosa 7](https://github.com/stain/virtuoso-docker) with RDF loaded from [data.openphacts.org](http://data.openphacts.org/)
- * [query expander](https://github.com/openphacts/queryExpander)
+
+* [virtuosa 7](https://github.com/stain/virtuoso-docker) with RDF loaded from [data.openphacts.org](http://data.openphacts.org/)
+* [query expander](https://github.com/openphacts/queryExpander)
 
 
 ## License
