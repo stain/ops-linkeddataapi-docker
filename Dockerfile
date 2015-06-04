@@ -1,6 +1,5 @@
 FROM ubuntu:14.04
 MAINTAINER Stian Soiland-Reyes <soiland-reyes@cs.manchester.ac.uk>
-ENV UPDATED "Mon Nov 10 14:52:51 GMT 2014"
 
 # Install apache/PHP for REST API
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -11,7 +10,7 @@ RUN a2enmod rewrite
 
 RUN rm -rf /var/www/html
 #Install Linked Data API
-RUN wget https://github.com/openphacts/OPS_LinkedDataApi/archive/1.4.0.zip -O /tmp/api.zip && \
+RUN wget https://github.com/openphacts/OPS_LinkedDataApi/archive/1.5.0.zip -O /tmp/api.zip && \
     cd /tmp && \
     unzip api.zip && \
     mv /tmp/OPS* /var/www/html
@@ -25,9 +24,6 @@ RUN mkdir /var/www/html/logs /var/www/html/cache && \
     chmod 777 /var/www/html/logs /var/www/html/cache && \
     chown -R www-data:www-data /var/www/html
 
-# TODO: Will this really save any space..?
-RUN rm /tmp/*
-RUN apt-get remove -y --purge unzip wget
 
 EXPOSE 80 
 CMD service memcached start && . /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND
